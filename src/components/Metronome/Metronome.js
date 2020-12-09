@@ -18,13 +18,33 @@ const useStyles = makeStyles({
   }
 });
 
+const incrButton = () => {
+  console.log("increase bpm button click");  
+}; 
+
+const decrButton = () => {
+  console.log("decrease bpm button click"); 
+}; 
+
+const beepSound = () => {
+  console.log("beep sound click"); 
+}; 
+
+const meowSound = () => {
+  console.log("meow sound click"); 
+};
+
+const tickSound = () => {
+  console.log("tick sound click"); 
+}
+
 function Metronome() {
   const classes = useStyles();
   return (
     <Container>
       <Grid container className={classes.root}>
         <Grid item xs={4}>
-          <IconButton>
+          <IconButton onClick={()=>{incrButton()}}>
             <KeyboardArrowUpIcon fontSize="large" />
           </IconButton>
         </Grid>
@@ -36,15 +56,15 @@ function Metronome() {
           </Card>
         </Grid>
         <Grid item xs={4}>
-          <IconButton>
+          <IconButton onClick={()=>{decrButton()}}>
             <KeyboardArrowDownIcon fontSize="large" />
           </IconButton>
         </Grid>
       </Grid>
       <Container className={classes.sounds}>
-        <Button>Beep</Button>
-        <Button>Meow</Button>
-        <Button>Tick</Button>
+        <Button onClick={() => {beepSound()}}>Beep</Button>
+        <Button onClick={() => {meowSound()}}>Meow</Button>
+        <Button onClick={() => {tickSound()}}>Tick</Button>
       </Container>
     </Container>
   );
